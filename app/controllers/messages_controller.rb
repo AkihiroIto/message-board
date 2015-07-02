@@ -1,8 +1,8 @@
 class MessagesController < ApplicationController
   def index
-    if Message != nil
+  
        @messages = Message.all
-    end
+    
   end
   
   def create
