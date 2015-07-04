@@ -1,0 +1,36 @@
+<%= form_for Message.new , :html => {:class => 'form-horizontal'} do |f| %>
+
+  <% if @message.errors.present? %>
+   <div class="alert alert-danger">
+       <%= alert %>
+       <ul>
+           <% @message.errors.full_messages.each do | full_message | %>
+               <li>
+                   <%= full_message %>
+               </li>
+           <% end %>
+       </ul>
+   </div>
+   <% end %>
+   <div class="row">
+  <div class="col-xs-1 text-right">
+      名前：
+  </div>
+  <div class="col-xs-3 text-left">
+      <%= f.text_field :name %>
+  </div>
+  </div>
+  <br />
+  <div class="row">
+  <div class="col-xs-1 text-right">
+      内容：
+  </div>
+  <div class="col-xs-3 text-left">
+      <%= f.text_area :body %>
+  </div>
+  </div>
+  <div class="col-xs-3 text-right">
+      <%= f.submit class: "btn btn-sm btn-primary" %>
+  </div>
+  
+  <% end %>
