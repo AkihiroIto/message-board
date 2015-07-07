@@ -18,13 +18,14 @@ class MessagesController < ApplicationController
   
   
   def edit
+    set_message
   end
 
-  def opdate
+  def update
     if @message.update(message_params)
       redirect_to root_path , notice: 'メッセージを編集しました'
     else
-      render 'index'
+      render 'edit'
     end
   end
   
